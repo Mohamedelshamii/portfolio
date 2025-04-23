@@ -1,0 +1,298 @@
+/**
+ * Responsive Design Rules
+ *
+ * @format
+ */
+
+/* Large screens (1200px and above) */
+@media screen and (min-width: 1200px) {
+    .section {
+        padding: 100px 50px;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Medium screens (992px to 1199px) */
+@media screen and (max-width: 1199px) {
+    .section {
+        padding: 80px 40px;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small screens (768px to 991px) */
+@media screen and (max-width: 991px) {
+    .section {
+        padding: 60px 30px;
+    }
+
+    .home-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .home-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Extra small screens (576px to 767px) */
+@media screen and (max-width: 767px) {
+    .section {
+        padding: 50px 20px;
+    }
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .home-content h1 {
+        font-size: 2rem;
+    }
+
+    .home-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-img {
+        margin-bottom: 20px;
+    }
+}
+
+/* Mobile screens (below 576px) */
+@media screen and (max-width: 575px) {
+    .section {
+        padding: 40px 15px;
+    }
+
+    .home-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .home-content h2 {
+        font-size: 1.3rem;
+    }
+
+    .project-card {
+        padding: 15px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #contact-form {
+        padding: 15px;
+    }
+
+    .social-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .dark-mode-toggle {
+        right: 15px;
+        bottom: 15px;
+    }
+}
+
+/* Landscape mode for mobile devices */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .section {
+        padding: 30px 20px;
+    }
+
+    .home-content {
+        padding: 20px;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* OnePlus Ace 3V and similar high-resolution devices */
+@media screen and (min-width: 1240px) and (max-width: 1240px) and (min-height: 2772px) and (max-height: 2772px) {
+    .section {
+        padding: 40px 20px;
+    }
+
+    .home-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .home-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+
+    .project-card img {
+        height: 250px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .skill-item {
+        padding: 20px;
+    }
+
+    .skill-item i,
+    .skill-item .icon-img {
+        font-size: 35px;
+    }
+
+    .nav-links {
+        font-size: 1.1rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-img {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 25px;
+    }
+
+    #contact-form {
+        max-width: 90%;
+    }
+
+    .social-links {
+        gap: 20px;
+    }
+
+    .social-links a {
+        font-size: 28px;
+    }
+
+    .dark-mode-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+}
+
+/* High-resolution mobile devices (general) */
+@media screen and (min-width: 1080px) and (max-width: 1440px) and (min-height: 1920px) and (max-height: 3120px) {
+    .section {
+        padding: 45px 25px;
+    }
+
+    .home-content h1 {
+        font-size: 2.3rem;
+    }
+
+    .home-content h2 {
+        font-size: 1.7rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .project-card {
+        padding: 25px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .skill-item {
+        padding: 25px;
+    }
+
+    .nav-links {
+        font-size: 1.2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-img {
+        width: 220px;
+        height: 220px;
+        margin-bottom: 30px;
+    }
+
+    #contact-form {
+        max-width: 95%;
+    }
+
+    .social-links {
+        gap: 25px;
+    }
+
+    .social-links a {
+        font-size: 30px;
+    }
+}

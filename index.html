@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="style/Style.css">
+    <link rel="stylesheet" href="style/responsive.css">
+    <link rel="stylesheet" href="style/dark_light.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
@@ -20,7 +22,6 @@
             emailjs.init("adYEzws07xaIxaBFB");
         })();
     </script>
-    <link rel="stylesheet" href="dark_light.css">
 </head>
 
 <body>
@@ -28,7 +29,7 @@
     <!-- Navigation -->
     <nav class="navbar glassy">
         <div class="logo-img">
-            <img src="logo.png" alt="Logo" class="logo-image">
+            <img src="img/logo.png" alt="Logo" class="logo-image">
         </div>
         <ul class="nav-links">
             <li><a href="#home" data-en="Home" data-ar="الصفحة الرئيسية" class="transition">Home</a></li>
@@ -65,7 +66,7 @@
     <section id="about" class="section about">
         <h2 data-en="About Me" data-ar="عنّي" class="transition">About Me</h2>
         <div class="about-content">
-            <img src="IMG_20250413_204432.jpg" alt="Profile Picture" class="profile-img">
+            <img src="img/IMG_20250413_204432.jpg" alt="Profile Picture" class="profile-img">
             <p data-en="I'm a Front-End Developer with over a year of experience, focusing on creating clean, responsive
                 websites using technologies like HTML, CSS, JavaScript, and React. I also work with tools like Tailwind,
                 Bootstrap, Vite, and Webpack to speed up development and make the user experience better. I love making
@@ -91,7 +92,7 @@
         <h2 data-en="My Projects" data-ar="مشاريعي" class="transition">My Projects</h2>
         <div class="project-grid">
             <div class="project-card">
-                <img src="project1.jpg" alt="Project 1">
+                <img src="img/project1.jpg" alt="Project 1">
                 <h3 data-en="Resto" data-ar="ريستو" class="transition">Resto</h3>
                 <p data-en="A fully responsive e-commerce website built with React and Redux."
                     data-ar="موقع تجارة إلكترونية متجاوب تمامًا مبني باستخدام React وRedux." class="transition">A fully
@@ -100,7 +101,7 @@
                     data-ar="عرض المشروع">View Project</a>
             </div>
             <div class="project-card">
-                <img src="project2.jpg" alt="Project 2">
+                <img src="img/project2.jpg" alt="Project 2">
                 <h3 data-en="Task Manager App" data-ar="تطبيق إدارة المهام" class="transition">Task Manager App</h3>
                 <p data-en="A task management app with Vue.js and Firebase integration."
                     data-ar="تطبيق لإدارة المهام مع تكامل Firebase وVue.js." class="transition">A task management app
@@ -108,7 +109,7 @@
                 <a href="#" class="btn transition" data-en="View Project" data-ar="عرض المشروع">View Project</a>
             </div>
             <div class="project-card">
-                <img src="project3.jpg" alt="Project 3">
+                <img src="img/project3.jpg" alt="Project 3">
                 <h3 data-en="Portfolio Website" data-ar="موقع البورتفوليو" class="transition">Portfolio Website</h3>
                 <p data-en="A personal portfolio showcasing my skills and projects."
                     data-ar="بورتفوليو شخصي يعرض مهاراتي ومشاريعي." class="transition">A personal portfolio showcasing
@@ -144,7 +145,8 @@
                 <span data-en="Bootstrap" data-ar="Bootstrap">Bootstrap</span>
             </div>
             <div class="skill-item">
-                <img src="https://www.svgrepo.com/show/374118/tailwind.svg" alt="Tailwind CSS" class="icon-img" />
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                    alt="Tailwind CSS" class="icon-img" />
                 <span data-en="Tailwind CSS" data-ar="Tailwind CSS">Tailwind CSS</span>
             </div>
             <div class="skill-item">
