@@ -805,6 +805,9 @@ h2 {
 .contact-form-container {
     flex: 1;
     max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 #contact-form {
@@ -865,10 +868,12 @@ h2 {
 }
 
 .social-links {
-    margin-top: 30px;
-    display: flex;
+    /* margin-top: 30px; */
+    display: inline;
+    /* flex-direction: row;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap; */
 }
 
 .social-links a {
@@ -876,8 +881,13 @@ h2 {
     font-size: 1.5rem;
     transition: all 0.3s ease;
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 100%;
     background: rgba(255, 255, 255, 0.1);
+    /* display: inline-flex; */
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 40px;
 }
 
 .social-links a:hover {
@@ -903,10 +913,16 @@ h2 {
 
     .contact-form-container {
         max-width: 100%;
+        width: 100%;
     }
 
     #contact-form {
         padding: 20px;
+        width: 100%;
+    }
+
+    #contact-form textarea {
+        height: 200px;
     }
 }
 
