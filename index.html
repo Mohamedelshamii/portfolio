@@ -7,7 +7,7 @@
     <title>Mohamed El-Sayed - Front-End Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Merienda:wght@300..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="Style/Style.css">
     <link rel="stylesheet" href="Style/responsive.css">
@@ -29,159 +29,322 @@
     <!-- Navigation -->
     <nav class="navbar glassy">
         <div class="logo-img">
-            <img src="Img/logo.png" alt="Logo" class="logo-image">
+            <img src="Img/MS.png" alt="Logo" class="logo-image">
         </div>
         <ul class="nav-links">
-            <li><a href="#home" data-en="Home" data-ar="الصفحة الرئيسية" class="transition">Home</a></li>
-            <li><a href="#about" data-en="About" data-ar="عنّي" class="transition">About</a></li>
-            <li><a href="#projects" data-en="Projects" data-ar="المشاريع" class="transition">Projects</a></li>
-            <li><a href="#skills" data-en="Skills" data-ar="المهارات" class="transition">Skills</a></li>
-            <li><a href="#contact" data-en="Contact" data-ar="التواصل" class="transition">Contact</a></li>
+            <li><a href="#home" data-en="About" data-ar="عنّي">About</a></li>
+            <li><a href="#projects" data-en="Projects" data-ar="المشاريع">Projects</a></li>
+            <li><a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a></li>
+            <li><a href="#contact" data-en="Contact" data-ar="التواصل">Contact</a></li>
         </ul>
         <div class="burger">
             <i class="fas fa-bars"></i>
         </div>
         <div class="language-switcher">
-            <button id="lang-toggle" data-en="AR" data-ar="EN">EN</button>
+            <button id="lang-toggle" class="lang-toggle">
+                <span data-en="عربي" data-ar="English">عربي</span>
+            </button>
         </div>
     </nav>
 
     <!-- Dark Mode Toggle -->
-    <div class="dark-mode-toggle" id="mode-toggle"></div>
+    <div class="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
 
     <!-- Home Section -->
     <section id="home" class="section home">
         <div class="home-content">
-            <h1 data-en="Hi, I'm Mohamed El-Sayed" data-ar="مرحبًا، أنا محمد السيد" class="transition">Hi, I'm Mohamed
-                El-Sayed</h1>
-            <h2 data-en="Front-End Developer" data-ar="مطور واجهات أمامية" class="transition">Front-End Developer</h2>
-            <p data-en="Building responsive, user-friendly web experiences with modern technologies."
-                data-ar="بناء تجارب ويب متجاوبة وسهلة الاستخدام باستخدام تقنيات حديثة." class="transition">Building
-                responsive, user-friendly web experiences with modern technologies.</p>
-            <a href="#contact" class="btn transition" data-en="Hire Me" data-ar="تواصل معي">Hire Me</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <h2 data-en="About Me" data-ar="عنّي" class="transition">About Me</h2>
-        <div class="about-content">
-            <img src="Img/IMG_20250413_204432.jpg" alt="Profile Picture" class="profile-img">
-            <p data-en="I'm a Front-End Developer with over a year of experience, focusing on creating clean, responsive
-                websites using technologies like HTML, CSS, JavaScript, and React. I also work with tools like Tailwind,
-                Bootstrap, Vite, and Webpack to speed up development and make the user experience better. I love making
-                websites that look great and are easy to use. The small details matter to me, and I always try to make
-                everything as smooth as possible. I'm always learning new things and improving my skills through real
-                projects."
-                data-ar="أنا مطور واجهات أمامية مع أكثر من سنة من الخبرة، أركز على إنشاء مواقع نظيفة ومتجاوبة
-                باستخدام تقنيات مثل HTML وCSS وJavaScript وReact. كما أستخدم أدوات مثل Tailwind وBootstrap وVite وWebpack
-                لتسريع التطوير وتحسين تجربة المستخدم. أحب إنشاء مواقع رائعة وسهلة الاستخدام. التفاصيل الصغيرة مهمة بالنسبة لي،
-                وأحاول دائمًا جعل كل شيء سلسًا قدر الإمكان. أتعلم دائمًا أشياء جديدة وأحسن مهاراتي من خلال مشاريع حقيقية.">
-                I'm a Front-End Developer with over a year of experience, focusing on creating clean, responsive
-                websites using technologies like HTML, CSS, JavaScript, and React. I also work with tools like Tailwind,
-                Bootstrap, Vite, and Webpack to speed up development and make the user experience better. I love making
-                websites that look great and are easy to use. The small details matter to me, and I always try to make
-                everything as smooth as possible. I'm always learning new things and improving my skills through real
-                projects.
-            </p>
+            <div class="profile-section">
+                <div class="profile-info">
+                    <div class="profile-img-container">
+                        <img src="Img/IMG_20250413_204432.jpg" alt="Profile Picture" data-ar-alt="الصورة الشخصية"
+                            class="profile-img">
+                    </div>
+                    <div class="hi-text" data-en="Hi!" data-ar="مطور واجهات المستخدم">Hi!</div>
+                    <h2 data-en="Front-End Web Developer" data-ar="!مرحبا">Front-End Web Developer</h2>
+                    <p>
+                        <span data-en="I'm" data-ar="أنا">I'm</span> <span class="name" data-ar="محمد السيد"
+                            data-en="Mohamed El-Sayed">Mohamed El-Sayed</span><span El-Sayed</span><span
+                                data-en=", transforming ideas into Digital Reality through creative and responsive web development."
+                                data-ar="، أقوم بتحويل الأفكار إلى واقع رقمي من خلال تطوير مواقع ويب إبداعية ومتجاوبة.">,
+                                transforming ideas into Digital Reality through creative and responsive web
+                                development.</span>
+                    </p>
+                    <div class="social-links-home">
+                        <a href="#" target="_blank" title="WhatsApp" data-ar-title="واتساب"
+                            aria-label="WhatsApp Profile"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" target="_blank" title="Facebook" data-ar-title="فيسبوك"
+                            aria-label="Facebook Profile"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank" title="Instagram" data-ar-title="انستغرام"
+                            aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" title="GitHub" data-ar-title="جيت هب" aria-label="GitHub Profile"><i
+                                class="fab fa-github"></i></a>
+                        <a href="#" target="_blank" title="LinkedIn" data-ar-title="لينكد إن"
+                            aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="section projects">
-        <h2 data-en="My Projects" data-ar="مشاريعي" class="transition">My Projects</h2>
+        <h2 data-en="Projects" data-ar="المشاريع">Projects</h2>
         <div class="project-grid">
             <div class="project-card">
-                <img src="Img/project1.jpg" alt="Project 1">
-                <h3 data-en="Resto" data-ar="ريستو" class="transition">Resto</h3>
-                <p data-en="A fully responsive e-commerce website built with React and Redux."
-                    data-ar="موقع تجارة إلكترونية متجاوب تمامًا مبني باستخدام React وRedux." class="transition">A fully
-                    responsive e-commerce website built with React and Redux.</p>
-                <a href="https://mohamedelshamii.github.io/resto/" class="btn transition" data-en="View Project"
-                    data-ar="عرض المشروع">View Project</a>
+                <div class="project-image">
+                    <img src="Img/fresh-care.jpg" alt="Fresh Care Project">
+                </div>
+                <div class="project-content">
+                    <h3 data-en="Fresh Care" data-ar="فريش كير">Fresh Care</h3>
+                    <p data-en="This project is an e-commerce used in react.js, tailwindcss, and it displays products. The user can add to cart and checkout..."
+                        data-ar="هذا المشروع هو متجر إلكتروني تم بناؤه باستخدام رياكت وتيلويند، يعرض المنتجات ويمكن للمستخدم الإضافة إلى السلة وإتمام الشراء...">
+                        This project is an e-commerce used in react.js, tailwindcss, and it displays products. The user
+                        can add to cart and checkout...
+                    </p>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="project-link" title="Live Demo" data-ar-title="عرض حي"><i
+                                class="fas fa-link"></i></a>
+                        <a href="#" target="_blank" class="project-link" title="Source Code"
+                            data-ar-title="الكود المصدري"><i class="fab fa-github"></i></a>
+                        <a href="#" class="project-more" data-en="More" data-ar="المزيد">More <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
+
             <div class="project-card">
-                <img src="Img/project2.jpg" alt="Project 2">
-                <h3 data-en="Task Manager App" data-ar="تطبيق إدارة المهام" class="transition">Task Manager App</h3>
-                <p data-en="A task management app with Vue.js and Firebase integration."
-                    data-ar="تطبيق لإدارة المهام مع تكامل Firebase وVue.js." class="transition">A task management app
-                    with Vue.js and Firebase integration.</p>
-                <a href="#" class="btn transition" data-en="View Project" data-ar="عرض المشروع">View Project</a>
+                <div class="project-image">
+                    <img src="Img/netflix-clone.jpg" alt="Netflix Clone">
+                </div>
+                <div class="project-content">
+                    <h3 data-en="Netflix Clone" data-ar="نسخة نتفلكس">Netflix Clone</h3>
+                    <p data-en="A Netflix clone built with React.js and Firebase. Features include user authentication, movie browsing, and responsive design..."
+                        data-ar="نسخة من نتفلكس تم بناؤها باستخدام رياكت وفايربيس. تتضمن المميزات تسجيل الدخول، تصفح الأفلام، وتصميم متجاوب...">
+                        A Netflix clone built with React.js and Firebase. Features include user authentication, movie
+                        browsing, and responsive design...
+                    </p>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="project-link" title="Live Demo" data-ar-title="عرض حي"><i
+                                class="fas fa-link"></i></a>
+                        <a href="#" target="_blank" class="project-link" title="Source Code"
+                            data-ar-title="الكود المصدري"><i class="fab fa-github"></i></a>
+                        <a href="#" class="project-more" data-en="More" data-ar="المزيد">More <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
+
             <div class="project-card">
-                <img src="Img/project3.jpg" alt="Project 3">
-                <h3 data-en="Portfolio Website" data-ar="موقع البورتفوليو" class="transition">Portfolio Website</h3>
-                <p data-en="A personal portfolio showcasing my skills and projects."
-                    data-ar="بورتفوليو شخصي يعرض مهاراتي ومشاريعي." class="transition">A personal portfolio showcasing
-                    my skills and projects.</p>
-                <a href="https://github.com/Mohamedelshamii/Portfolio.git" class="btn transition" data-en="View Project"
-                    data-ar="عرض المشروع">view portfolio</a>
+                <div class="project-image">
+                    <img src="Img/weather-app.jpg" alt="Weather App">
+                </div>
+                <div class="project-content">
+                    <h3 data-en="Weather Dashboard" data-ar="لوحة الطقس">Weather Dashboard</h3>
+                    <p data-en="A weather application using OpenWeather API, built with Vue.js. Shows current weather, forecasts, and location-based updates..."
+                        data-ar="تطبيق طقس يستخدم واجهة برمجة OpenWeather، تم بناؤه باستخدام Vue.js. يعرض حالة الطقس الحالية، التوقعات، وتحديثات حسب الموقع...">
+                        A weather application using OpenWeather API, built with Vue.js. Shows current weather,
+                        forecasts, and location-based updates...
+                    </p>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="project-link" title="Live Demo" data-ar-title="عرض حي"><i
+                                class="fas fa-link"></i></a>
+                        <a href="#" target="_blank" class="project-link" title="Source Code"
+                            data-ar-title="الكود المصدري"><i class="fab fa-github"></i></a>
+                        <a href="#" class="project-more" data-en="More" data-ar="المزيد">More <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="Img/task-manager.jpg" alt="Task Manager">
+                </div>
+                <div class="project-content">
+                    <h3 data-en="Task Manager" data-ar="إدارة المهام">Task Manager</h3>
+                    <p data-en="A full-stack task management app using MERN stack. Features include task creation, categories, due dates, and progress tracking..."
+                        data-ar="تطبيق متكامل لإدارة المهام باستخدام MERN stack. يتضمن إنشاء المهام، التصنيفات، مواعيد التسليم، وتتبع التقدم...">
+                        A full-stack task management app using MERN stack. Features include task creation, categories,
+                        due dates, and progress tracking...
+                    </p>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="project-link" title="Live Demo" data-ar-title="عرض حي"><i
+                                class="fas fa-link"></i></a>
+                        <a href="#" target="_blank" class="project-link" title="Source Code"
+                            data-ar-title="الكود المصدري"><i class="fab fa-github"></i></a>
+                        <a href="#" class="project-more" data-en="More" data-ar="المزيد">More <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section skills">
-        <h2 data-en="My Skills" data-ar="مهاراتي" class="transition">My Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-item">
-                <i class="devicon-html5-plain colored"></i>
-                <span data-en="HTML5" data-ar="HTML5">HTML5</span>
-            </div>
-            <div class="skill-item">
-                <i class="devicon-css3-plain colored"></i>
-                <span data-en="CSS3" data-ar="CSS3">CSS3</span>
-            </div>
-            <div class="skill-item">
-                <i class="devicon-javascript-plain colored"></i>
-                <span data-en="JavaScript" data-ar="JavaScript">JavaScript</span>
-            </div>
-            <div class="skill-item">
-                <i class="devicon-react-original colored"></i>
-                <span data-en="React" data-ar="React">React</span>
-            </div>
-            <div class="skill-item">
-                <i class="devicon-bootstrap-plain colored"></i>
-                <span data-en="Bootstrap" data-ar="Bootstrap">Bootstrap</span>
-            </div>
-            <div class="skill-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
-                    alt="Tailwind CSS" class="icon-img" />
-                <span data-en="Tailwind CSS" data-ar="Tailwind CSS">Tailwind CSS</span>
-            </div>
-            <div class="skill-item">
-                <i class="devicon-git-plain colored"></i>
-                <span data-en="Git" data-ar="Git">Git</span>
-            </div>
-            <div class="skill-item">
-                <i class="devicon-webpack-plain colored"></i>
-                <span data-en="Webpack" data-ar="Webpack">Webpack</span>
-            </div>
-            <div class="skill-item">
-                <img src="https://vitejs.dev/logo.svg" alt="Vite" class="icon-img" />
-                <span data-en="Vite" data-ar="Vite">Vite</span>
+    <section id="skills" class="section">
+        <h2 data-en="Skills" data-ar="المهارات">Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3 data-en="Technical Skills" data-ar="المهارات التقنية">Technical Skills</h3>
+                <div class="skills-carousel-container">
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="devicon-react-original colored"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="React" data-ar="React">React</h4>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="devicon-javascript-plain colored"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="JavaScript" data-ar="JavaScript">JavaScript</h4>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="devicon-typescript-plain colored"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="TypeScript" data-ar="TypeScript">TypeScript</h4>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="devicon-html5-plain colored"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="HTML5" data-ar="HTML5">HTML5</h4>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="devicon-css3-plain colored"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="CSS3" data-ar="CSS3">CSS3</h4>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="devicon-sass-original colored"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="Sass" data-ar="Sass">Sass</h4>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="devicon-tailwindcss-plain colored"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="Tailwind" data-ar="Tailwind">Tailwind</h4>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="devicon-bootstrap-plain colored"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="Bootstrap" data-ar="Bootstrap">Bootstrap</h4>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="devicon-materialui-plain colored"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="Material UI" data-ar="Material UI">Material UI</h4>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="devicon-git-plain colored"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="Git" data-ar="Git">Git</h4>
+                            </div>
+                        </div>
+                        <!-- Duplicate set for seamless infinite scroll -->
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="devicon-react-original colored"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="React" data-ar="React">React</h4>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="devicon-javascript-plain colored"></i>
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="JavaScript" data-ar="JavaScript">JavaScript</h4>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <img src="Img/skills/typescript.svg" alt="TypeScript" />
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="TypeScript" data-ar="TypeScript">TypeScript</h4>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <img src="Img/skills/html5.svg" alt="HTML5" />
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="HTML5" data-ar="HTML5">HTML5</h4>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <img src="Img/skills/css3.svg" alt="CSS3" />
+                            </div>
+                            <div class="skill-info">
+                                <h4 data-en="CSS3" data-ar="CSS3">CSS3</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section contact">
-        <h2 data-en="Contact Me" data-ar="تواصل معي" class="transition">Contact Me</h2>
-        <form id="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn transition" data-en="Send Message" data-ar="إرسال الرسالة">Send
-                Message</button>
-        </form>
+        <h2 data-en="Contact Me" data-ar="تواصل معي">Contact Me</h2>
+        <div class="contact-container">
+            <div class="contact-illustration">
+                <img src="Img/contact-illustration.svg" alt="Contact Illustration" class="contact-image">
+            </div>
+            <div class="contact-form-container">
+                <form id="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" data-en-placeholder="Your Name"
+                        data-ar-placeholder="الاسم" required>
+                    <input type="email" name="email" placeholder="Your Email" data-en-placeholder="Your Email"
+                        data-ar-placeholder="البريد الإلكتروني" required>
+                    <textarea name="message" placeholder="Your Message" data-en-placeholder="Your Message"
+                        data-ar-placeholder="رسالتك" required></textarea>
+                    <button type="submit" class="btn" data-en="Send Message" data-ar="إرسال الرسالة">Send
+                        Message</button>
+                </form>
+            </div>
+        </div>
         <div id="toast" class="toast"></div>
         <div id="spinner" class="spinner hidden"></div>
         <div class="social-links">
-            <a target="_blank" rel="noopener"
-                href="https://www.linkedin.com/in/mohamed-elshami-389b6b223?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bxla1GttkTWWo1xDo398clg%3D%3D"><i
-                    class="fab fa-linkedin"></i></a>
-            <a target="_blank" rel="noopener" href="https://github.com/Mohamedelshamii"><i
-                    class="fab fa-github"></i></a>
+            <a href="#" target="_blank" title="WhatsApp" data-ar-title="واتساب"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" target="_blank" title="Facebook" data-ar-title="فيسبوك"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank" title="Instagram" data-ar-title="انستغرام"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" title="GitHub" data-ar-title="جيت هب"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank" title="LinkedIn" data-ar-title="لينكد إن"><i class="fab fa-linkedin"></i></a>
         </div>
     </section>
 
@@ -191,6 +354,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </body>
 
 </html>

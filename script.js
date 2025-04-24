@@ -1,7 +1,24 @@
 /** @format */
 
-// Toggle Mobile Menu
+// Initialize VANTA background immediately
+const vantaEffect = VANTA.WAVES({
+    el: '#vanta-background',
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.0,
+    minWidth: 200.0,
+    scale: 1.0,
+    scaleMobile: 1.0,
+    color: 0xffb347, // Warm yellow color
+    shininess: 0.0,
+    waveHeight: 20.0,
+    waveSpeed: 0.75,
+    zoom: 0.65,
+    backgroundColor: 0xfff8e7, // Warm background always
+});
 
+// Toggle Mobile Menu
 const burger = document.querySelector('.burger');
 const navLinks = document.querySelector('.nav-links');
 
@@ -52,9 +69,6 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
     emailjs
         .sendForm('service_70cjytg', 'template_npdha5b', form)
         .then(() => {
-            // Save to Google Sheets (optional)
-            saveToGoogleSheets(form);
-
             showToast('✅ Message sent successfully!');
             form.reset();
             spinner.classList.add('hidden');
@@ -66,114 +80,92 @@ document.getElementById('contact-form').addEventListener('submit', function (e) 
         });
 });
 
-// Optional: Save to Google Sheets
-function saveToGoogleSheets(form) {
-    const data = {
-        name: form.name.value,
-        email: form.email.value,
-        message: form.message.value,
-        timestamp: new Date().toLocaleString(),
-    };
-
-    fetch('https://sheetdb.io/api/v1/YOUR_SHEETDB_API_ID', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ data }),
-    }).then((res) => {
-        if (!res.ok) {
-            console.warn('Google Sheets save failed');
-        }
-    });
-}
-
-// Language Switcher
-document.getElementById('lang-toggle').addEventListener('click', function () {
-    let currentLang = document.documentElement.lang;
-
-    if (currentLang === 'en') {
-        document.documentElement.lang = 'ar';
-        document.body.setAttribute('dir', 'rtl');
-        document.getElementById('lang-toggle').textContent = 'EN';
-        changeToArabic();
-    } else {
-        document.documentElement.lang = 'en';
-        document.body.setAttribute('dir', 'ltr');
-        document.getElementById('lang-toggle').textContent = 'AR';
-        changeToEnglish();
-    }
-});
-
-function changeToArabic() {
-    const textElements = document.querySelectorAll('[data-en]');
-    textElements.forEach((element) => {
-        element.textContent = element.getAttribute('data-ar');
-    });
-}
-
-function changeToEnglish() {
-    const textElements = document.querySelectorAll('[data-ar]');
-    textElements.forEach((element) => {
-        element.textContent = element.getAttribute('data-en');
-    });
-}
-
 // Dark Mode Toggle
-let vantaEffect = null;
-
-// Get the saved mode from localStorage
 const savedMode = localStorage.getItem('darkMode');
 const modeToggle = document.querySelector('.dark-mode-toggle');
 
-// Function to initialize Vanta.js effect
-function initVanta(isDark) {
-    if (vantaEffect) {
-        vantaEffect.destroy();
-    }
-
-    vantaEffect = VANTA.WAVES({
-        el: '#vanta-background',
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.0,
-        minWidth: 200.0,
-        scale: 1.0,
-        scaleMobile: 1.0,
-        color: isDark ? 0xffb347 : 0xffb347,
-        shininess: isDark ? 0.8 : 0.6,
-        waveHeight: isDark ? 30.0 : 20.0,
-        backgroundColor: isDark ? 0x2c2c2c : 0xfafafa,
-    });
-}
-
-// Function to toggle dark mode
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     const isDark = document.body.classList.contains('dark-mode');
-
-    // Update Vanta effect based on mode
-    initVanta(isDark);
-
-    // Update button icon based on mode
     modeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-    modeToggle.classList.toggle('active');
-
-    // Save the mode to localStorage
     localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
 }
 
-// Initialize the page with the saved mode
+// Initialize dark mode from saved preference
 if (savedMode === 'enabled') {
     document.body.classList.add('dark-mode');
-    initVanta(true);
     modeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    modeToggle.classList.add('active');
 } else {
-    initVanta(false);
     modeToggle.innerHTML = '<i class="fas fa-moon"></i>';
 }
 
 // Add click event listener to the mode toggle button
 modeToggle.addEventListener('click', toggleDarkMode);
+
+// Language switching functionality
+function toggleLanguage() {
+    const currentLang = document.documentElement.lang;
+    const newLang = currentLang === 'en' ? 'ar' : 'en';
+
+    // Update HTML lang attribute only
+    document.documentElement.lang = newLang;
+
+    // Update all translatable elements
+    document.querySelectorAll('[data-en]').forEach((element) => {
+        // Skip skill names
+        if (element.closest('.skill-info h4')) return;
+
+        const enText = element.getAttribute('data-en');
+        const arText = element.getAttribute('data-ar');
+        element.textContent = newLang === 'en' ? enText : arText;
+    });
+
+    // Update placeholders
+    document
+        .querySelectorAll('input[data-ar-placeholder], textarea[data-ar-placeholder]')
+        .forEach((element) => {
+            const enPlaceholder =
+                element.getAttribute('data-en-placeholder') || element.getAttribute('placeholder');
+            const arPlaceholder = element.getAttribute('data-ar-placeholder');
+
+            // Store the English placeholder if not already stored
+            if (!element.getAttribute('data-en-placeholder')) {
+                element.setAttribute('data-en-placeholder', enPlaceholder);
+            }
+
+            // Set the appropriate placeholder based on language
+            element.setAttribute('placeholder', newLang === 'en' ? enPlaceholder : arPlaceholder);
+        });
+
+    // Update link titles
+    document.querySelectorAll('[data-ar-title]').forEach((element) => {
+        const enTitle = element.getAttribute('title');
+        const arTitle = element.getAttribute('data-ar-title');
+        element.setAttribute('title', newLang === 'en' ? enTitle : arTitle);
+    });
+
+    // Update language toggle button text
+    const langToggle = document.querySelector('#lang-toggle span');
+    const toggleEnText = langToggle.getAttribute('data-en');
+    const toggleArText = langToggle.getAttribute('data-ar');
+    langToggle.textContent = newLang === 'en' ? toggleEnText : toggleArText;
+
+    // Save language preference
+    localStorage.setItem('preferredLanguage', newLang);
+}
+
+// Load saved language preference
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferredLanguage');
+    if (savedLang) {
+        document.documentElement.lang = savedLang;
+        toggleLanguage();
+    } else {
+        // Set English as default language if no preference is saved
+        document.documentElement.lang = 'en';
+        localStorage.setItem('preferredLanguage', 'en');
+    }
+});
+
+// Add click event listener to language toggle button
+document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
