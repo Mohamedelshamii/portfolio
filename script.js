@@ -107,7 +107,7 @@ function toggleLanguage() {
     const currentLang = document.documentElement.lang;
     const newLang = currentLang === 'en' ? 'ar' : 'en';
 
-    // Update HTML lang attribute only
+    // Update HTML lang attribute
     document.documentElement.lang = newLang;
 
     // Update all translatable elements
@@ -124,16 +124,8 @@ function toggleLanguage() {
     document
         .querySelectorAll('input[data-ar-placeholder], textarea[data-ar-placeholder]')
         .forEach((element) => {
-            const enPlaceholder =
-                element.getAttribute('data-en-placeholder') || element.getAttribute('placeholder');
+            const enPlaceholder = element.getAttribute('data-en-placeholder');
             const arPlaceholder = element.getAttribute('data-ar-placeholder');
-
-            // Store the English placeholder if not already stored
-            if (!element.getAttribute('data-en-placeholder')) {
-                element.setAttribute('data-en-placeholder', enPlaceholder);
-            }
-
-            // Set the appropriate placeholder based on language
             element.setAttribute('placeholder', newLang === 'en' ? enPlaceholder : arPlaceholder);
         });
 
@@ -156,15 +148,38 @@ function toggleLanguage() {
 
 // Load saved language preference
 document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('preferredLanguage');
-    if (savedLang) {
-        document.documentElement.lang = savedLang;
-        toggleLanguage();
-    } else {
-        // Set English as default language if no preference is saved
-        document.documentElement.lang = 'en';
-        localStorage.setItem('preferredLanguage', 'en');
-    }
+    const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+    document.documentElement.lang = savedLang;
+
+    // Apply the saved language
+    document.querySelectorAll('[data-en]').forEach((element) => {
+        if (element.closest('.skill-info h4')) return;
+        const enText = element.getAttribute('data-en');
+        const arText = element.getAttribute('data-ar');
+        element.textContent = savedLang === 'en' ? enText : arText;
+    });
+
+    // Apply saved language to placeholders
+    document
+        .querySelectorAll('input[data-ar-placeholder], textarea[data-ar-placeholder]')
+        .forEach((element) => {
+            const enPlaceholder = element.getAttribute('data-en-placeholder');
+            const arPlaceholder = element.getAttribute('data-ar-placeholder');
+            element.setAttribute('placeholder', savedLang === 'en' ? enPlaceholder : arPlaceholder);
+        });
+
+    // Apply saved language to titles
+    document.querySelectorAll('[data-ar-title]').forEach((element) => {
+        const enTitle = element.getAttribute('title');
+        const arTitle = element.getAttribute('data-ar-title');
+        element.setAttribute('title', savedLang === 'en' ? enTitle : arTitle);
+    });
+
+    // Set language toggle button text
+    const langToggle = document.querySelector('#lang-toggle span');
+    const toggleEnText = langToggle.getAttribute('data-en');
+    const toggleArText = langToggle.getAttribute('data-ar');
+    langToggle.textContent = savedLang === 'en' ? toggleEnText : toggleArText;
 });
 
 // Add click event listener to language toggle button
