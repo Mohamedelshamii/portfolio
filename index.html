@@ -101,27 +101,6 @@
     <section id="projects" class="section projects">
         <h2 data-en="Projects" data-ar="المشاريع">Projects</h2>
         <div class="project-grid">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="Img/fresh-care.jpg" alt="Fresh Care Project">
-                </div>
-                <div class="project-content">
-                    <h3 data-en="Fresh Care" data-ar="فريش كير">Fresh Care</h3>
-                    <p data-en="This project is an e-commerce used in react.js, tailwindcss, and it displays products. The user can add to cart and checkout..."
-                        data-ar="هذا المشروع هو متجر إلكتروني تم بناؤه باستخدام رياكت وتيلويند، يعرض المنتجات ويمكن للمستخدم الإضافة إلى السلة وإتمام الشراء...">
-                        This project is an e-commerce used in react.js, tailwindcss, and it displays products. The user
-                        can add to cart and checkout...
-                    </p>
-                    <div class="project-links">
-                        <a href="#" target="_blank" class="project-link" title="Live Demo" data-ar-title="عرض حي"><i
-                                class="fas fa-link"></i></a>
-                        <a href="#" target="_blank" class="project-link" title="Source Code"
-                            data-ar-title="الكود المصدري"><i class="fab fa-github"></i></a>
-                        <a href="#" class="project-more" data-en="More" data-ar="المزيد">More <i
-                                class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
 
             <div class="project-card">
                 <div class="project-image">
@@ -144,45 +123,25 @@
                     </div>
                 </div>
             </div>
-
+            <!-- Prayer Project -->
             <div class="project-card">
                 <div class="project-image">
-                    <img src="Img/weather-app.jpg" alt="Weather App">
+                    <img src="Img/Prayer_Project.png" alt="Prayer Project">
                 </div>
                 <div class="project-content">
-                    <h3 data-en="Weather Dashboard" data-ar="لوحة الطقس">Weather Dashboard</h3>
-                    <p data-en="A weather application using OpenWeather API, built with Vue.js. Shows current weather, forecasts, and location-based updates..."
-                        data-ar="تطبيق طقس يستخدم واجهة برمجة OpenWeather، تم بناؤه باستخدام Vue.js. يعرض حالة الطقس الحالية، التوقعات، وتحديثات حسب الموقع...">
-                        A weather application using OpenWeather API, built with Vue.js. Shows current weather,
-                        forecasts, and location-based updates...
+                    <h3 data-en="Prayer Project" data-ar="مشروع مواقيت الصلاة">Prayer Project</h3>
+                    <p data-en="A beautiful and modern web application for displaying prayer times in different Egyptian cities. Features Islamic design and user-friendly interface..."
+                        data-ar="تطبيق ويب جميل وعصري لعرض مواقيت الصلاة في مختلف المدن المصرية. يتميز بتصميم إسلامي جذاب وواجهة مستخدم سهلة الاستخدام...">
+                        A beautiful and modern web application for displaying prayer times in different Egyptian cities.
+                        Features Islamic design and user-friendly interface...
                     </p>
                     <div class="project-links">
-                        <a href="#" target="_blank" class="project-link" title="Live Demo" data-ar-title="عرض حي"><i
+                        <a href="https://mohamedelshamii.github.io/Prayer_Project/" target="_blank" rel="noopener"
+                            class="project-link" title="Live Demo" data-ar-title="عرض حي"><i
                                 class="fas fa-link"></i></a>
-                        <a href="#" target="_blank" class="project-link" title="Source Code"
-                            data-ar-title="الكود المصدري"><i class="fab fa-github"></i></a>
-                        <a href="#" class="project-more" data-en="More" data-ar="المزيد">More <i
-                                class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="Img/task-manager.jpg" alt="Task Manager">
-                </div>
-                <div class="project-content">
-                    <h3 data-en="Task Manager" data-ar="إدارة المهام">Task Manager</h3>
-                    <p data-en="A full-stack task management app using MERN stack. Features include task creation, categories, due dates, and progress tracking..."
-                        data-ar="تطبيق متكامل لإدارة المهام باستخدام MERN stack. يتضمن إنشاء المهام، التصنيفات، مواعيد التسليم، وتتبع التقدم...">
-                        A full-stack task management app using MERN stack. Features include task creation, categories,
-                        due dates, and progress tracking...
-                    </p>
-                    <div class="project-links">
-                        <a href="#" target="_blank" class="project-link" title="Live Demo" data-ar-title="عرض حي"><i
-                                class="fas fa-link"></i></a>
-                        <a href="#" target="_blank" class="project-link" title="Source Code"
-                            data-ar-title="الكود المصدري"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/Mohamedelshamii/Prayer_Project" target="_blank" rel="noopener"
+                            class="project-link" title="Source Code" data-ar-title="الكود المصدري"><i
+                                class="fab fa-github"></i></a>
                         <a href="#" class="project-more" data-en="More" data-ar="المزيد">More <i
                                 class="fas fa-arrow-right"></i></a>
                     </div>
@@ -365,6 +324,32 @@
     <footer>
         <p>&copy; 2025 Mohamed El-Sayed. All Rights Reserved.</p>
     </footer>
+
+    <!-- Project Details Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                <div class="modal-description">
+                    <p id="modalDescription"></p>
+                </div>
+                <div class="modal-features">
+                    <h3 data-en="Features" data-ar="المميزات">Features</h3>
+                    <ul id="modalFeatures"></ul>
+                </div>
+                <div class="modal-tech">
+                    <h3 data-en="Technologies Used" data-ar="التقنيات المستخدمة">Technologies Used</h3>
+                    <div id="modalTech" class="tech-stack"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>

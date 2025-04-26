@@ -184,3 +184,126 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Add click event listener to language toggle button
 document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
+
+// Project Details Data
+const projectDetails = {
+    'prayer-project': {
+        title: {
+            en: 'Prayer Project',
+            ar: 'مشروع مواقيت الصلاة',
+        },
+        description: {
+            en: 'A beautiful and modern web application for displaying prayer times in different Egyptian cities. The application features an Islamic design with a user-friendly interface, making it easy for users to check prayer times for their location.',
+            ar: 'تطبيق ويب جميل وعصري لعرض مواقيت الصلاة في مختلف المدن المصرية. يتميز التطبيق بتصميم إسلامي جذاب وواجهة مستخدم سهلة الاستخدام، مما يسهل على المستخدمين التحقق من مواقيت الصلاة لموقعهم.',
+        },
+        features: {
+            en: [
+                'Display prayer times for five daily prayers',
+                'Support for multiple Egyptian cities',
+                'Beautiful Islamic design and interface',
+                'Responsive layout for all devices',
+                'Easy city selection and navigation',
+                'Automatic date updates',
+            ],
+            ar: [
+                'عرض مواقيت الصلوات الخمس',
+                'دعم لعدة مدن مصرية',
+                'تصميم إسلامي جميل وواجهة سهلة',
+                'تصميم متجاوب لجميع الأجهزة',
+                'سهولة اختيار المدينة والتنقل',
+                'تحديث تلقائي للتاريخ',
+            ],
+        },
+        technologies: [
+            'devicon-html5-plain',
+            'devicon-css3-plain',
+            'devicon-javascript-plain',
+            'devicon-react-original',
+        ],
+    },
+};
+
+// Modal functionality
+const modal = document.getElementById('projectModal');
+const closeModal = document.querySelector('.close-modal');
+const projectMoreButtons = document.querySelectorAll('.project-more');
+
+function openModal(projectId) {
+    const project = projectDetails[projectId];
+    const currentLang = document.documentElement.lang;
+
+    // Set modal content
+    document.getElementById('modalTitle').textContent = project.title[currentLang];
+    document.getElementById('modalImage').src = `Img/${
+        projectId === 'prayer-project' ? 'Prayer_Project' : projectId
+    }.png`;
+    document.getElementById('modalDescription').textContent = project.description[currentLang];
+
+    // Set features
+    const featuresList = document.getElementById('modalFeatures');
+    featuresList.innerHTML = '';
+    project.features[currentLang].forEach((feature) => {
+        const li = document.createElement('li');
+        li.textContent = feature;
+        featuresList.appendChild(li);
+    });
+
+    // Set technologies
+    const techStack = document.getElementById('modalTech');
+    techStack.innerHTML = '';
+    project.technologies.forEach((tech) => {
+        const i = document.createElement('i');
+        i.className = tech;
+        techStack.appendChild(i);
+    });
+
+    // Show modal
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModalHandler() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Event listeners
+closeModal.addEventListener('click', closeModalHandler);
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModalHandler();
+    }
+});
+
+projectMoreButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const projectCard = button.closest('.project-card');
+        const projectId = projectCard.querySelector('img').alt.toLowerCase().replace(/\s+/g, '-');
+        openModal(projectId);
+    });
+});
+
+// Update modal content when language changes
+document.getElementById('lang-toggle').addEventListener('click', () => {
+    if (modal.style.display === 'block') {
+        const currentLang = document.documentElement.lang;
+        const projectId = document
+            .getElementById('modalImage')
+            .src.split('/')
+            .pop()
+            .replace('.png', '');
+        const project = projectDetails[projectId];
+
+        document.getElementById('modalTitle').textContent = project.title[currentLang];
+        document.getElementById('modalDescription').textContent = project.description[currentLang];
+
+        const featuresList = document.getElementById('modalFeatures');
+        featuresList.innerHTML = '';
+        project.features[currentLang].forEach((feature) => {
+            const li = document.createElement('li');
+            li.textContent = feature;
+            featuresList.appendChild(li);
+        });
+    }
+});
