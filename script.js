@@ -221,6 +221,31 @@ const projectDetails = {
             'devicon-react-original',
         ],
     },
+    'to-do-list': {
+        title: {
+            en: 'To Do List',
+            ar: 'قائمة المهام',
+        },
+        description: {
+            en: 'A modern and simple To Do List web app. Add, manage, and track your daily tasks with a clean and intuitive interface. Built with HTML, CSS, and JavaScript.',
+            ar: 'تطبيق ويب حديث وبسيط لقائمة المهام. أضف، نظم، وتابع مهامك اليومية من خلال واجهة نظيفة وسهلة الاستخدام. تم بناؤه باستخدام HTML وCSS وJavaScript.',
+        },
+        features: {
+            en: [
+                'Add, edit, and delete tasks',
+                'Mark tasks as completed',
+                'Responsive and clean UI',
+                'Local storage support',
+            ],
+            ar: [
+                'إضافة وتعديل وحذف المهام',
+                'وضع علامة على المهام المنجزة',
+                'واجهة مستخدم نظيفة ومتجاوبة',
+                'دعم التخزين المحلي',
+            ],
+        },
+        technologies: ['devicon-html5-plain', 'devicon-css3-plain', 'devicon-javascript-plain'],
+    },
 };
 
 // Modal functionality
@@ -232,11 +257,22 @@ function openModal(projectId) {
     const project = projectDetails[projectId];
     const currentLang = document.documentElement.lang;
 
+    // Get the project card and its custom image if available
+    let imageSrc = `Img/${projectId === 'prayer-project' ? 'Prayer_Project' : projectId}.png`;
+    const projectCard = Array.from(document.querySelectorAll('.project-card')).find((card) => {
+        const img = card.querySelector('img');
+        return img && img.alt.toLowerCase().replace(/\s+/g, '-') === projectId;
+    });
+    if (projectCard) {
+        const moreBtn = projectCard.querySelector('.project-more');
+        if (moreBtn && moreBtn.hasAttribute('data-modal-image')) {
+            imageSrc = moreBtn.getAttribute('data-modal-image');
+        }
+    }
+
     // Set modal content
     document.getElementById('modalTitle').textContent = project.title[currentLang];
-    document.getElementById('modalImage').src = `Img/${
-        projectId === 'prayer-project' ? 'Prayer_Project' : projectId
-    }.png`;
+    document.getElementById('modalImage').src = imageSrc;
     document.getElementById('modalDescription').textContent = project.description[currentLang];
 
     // Set features
