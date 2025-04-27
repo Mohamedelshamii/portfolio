@@ -460,7 +460,7 @@ h2 {
 }
 
 .social-links-home a:hover {
-    color: var(--primary-color);
+    color: #9d4edd;
     transform: translateY(-3px);
     text-shadow: 0 0 15px rgba(var(--primary-rgb), 0.5);
 }
@@ -992,7 +992,6 @@ h2 {
     transition: all 0.3s ease;
     padding: 10px;
     border-radius: 100%;
-    background: rgba(255, 255, 255, 0.1);
     /* display: inline-flex; */
     align-items: center;
     justify-content: center;
@@ -1003,7 +1002,6 @@ h2 {
 .social-links a:hover {
     color: #9d4edd;
     transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 5px 15px rgba(157, 78, 221, 0.2);
 }
 
