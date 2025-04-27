@@ -265,23 +265,13 @@ h2 {
     transform: scale(1.1);
 }
 
-.hi-text {
-    font-family: 'Caveat Brush', cursive !important;
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-    display: inline-block;
-    position: relative;
-    color: var(--text-color);
+.profile-info {
+    text-align: center;
+    padding: 20px;
 }
 
-.hi-text::after {
-    content: '👋';
-    display: inline-block;
-    animation: wave 2.5s infinite;
-    transform-origin: 70% 70%;
-}
-
-.profile-info h2 {
+.profile-info h2[data-en='Front-End Web Developer'],
+.profile-info h2[data-ar='مطور واجهات المستخدم'] {
     font-family: 'Caveat Brush', cursive !important;
     font-size: 2.8rem;
     font-weight: 600;
@@ -292,6 +282,49 @@ h2 {
     color: transparent;
     animation: gradientText 3s ease infinite;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile-info h2[data-en='Front-End Web Developer']:hover,
+.profile-info h2[data-ar='مطور واجهات المستخدم']:hover {
+    transform: translateY(-5px);
+    text-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
+}
+
+.profile-info h2[data-en='Front-End Web Developer']::before,
+.profile-info h2[data-ar='مطور واجهات المستخدم']::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.profile-info h2[data-en='Front-End Web Developer']:hover::before,
+.profile-info h2[data-ar='مطور واجهات المستخدم']:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.hi-text {
+    font-family: 'Caveat Brush', cursive !important;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.hi-text:hover {
+    transform: scale(1.1);
+    color: var(--secondary-color);
 }
 
 .profile-info p {
@@ -302,11 +335,93 @@ h2 {
     color: var(--text-color);
 }
 
-.profile-info p span {
-    font-family: 'Caveat Brush', cursive !important;
-    font-size: 1.8rem;
+.profile-info .name {
     color: var(--primary-color);
-    font-weight: 500;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.profile-info .name:hover {
+    color: var(--secondary-color);
+    text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.3);
+}
+
+/* Arabic specific styles */
+[lang='ar'] .profile-info {
+    direction: rtl;
+}
+
+[lang='ar'] .profile-info h2[data-ar='مطور واجهات المستخدم'] {
+    direction: rtl;
+}
+
+[lang='ar'] .profile-info h2[data-ar='مطور واجهات المستخدم']::before {
+    right: 0;
+    left: auto;
+}
+
+[lang='ar'] .profile-info h2[data-ar='مطور واجهات المستخدم']:hover::before {
+    transform-origin: right;
+}
+
+[lang='ar'] .profile-info p {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Dark mode adjustments */
+.dark-mode .profile-info h2[data-en='Front-End Web Developer'],
+.dark-mode .profile-info h2[data-ar='مطور واجهات المستخدم'] {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .profile-info h2[data-en='Front-End Web Developer']:hover,
+.dark-mode .profile-info h2[data-ar='مطور واجهات المستخدم']:hover {
+    text-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.4);
+}
+
+.dark-mode .hi-text {
+    color: var(--primary-color-light);
+}
+
+.dark-mode .profile-info .name {
+    color: var(--primary-color-light);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-info h2[data-en='Front-End Web Developer'],
+    .profile-info h2[data-ar='مطور واجهات المستخدم'] {
+        font-size: 2.2rem;
+    }
+
+    .profile-info h2[data-en='Front-End Web Developer']:hover,
+    .profile-info h2[data-ar='مطور واجهات المستخدم']:hover {
+        transform: translateY(-3px);
+    }
+
+    .hi-text {
+        font-size: 2rem;
+    }
+
+    .profile-info p {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-info h2[data-en='Front-End Web Developer'],
+    .profile-info h2[data-ar='مطور واجهات المستخدم'] {
+        font-size: 2rem;
+    }
+
+    .hi-text {
+        font-size: 1.8rem;
+    }
+
+    .profile-info p {
+        font-size: 1.2rem;
+    }
 }
 
 .social-links-home {
@@ -333,7 +448,7 @@ h2 {
     border-radius: 5px;
     font-size: 0.8rem;
     background: rgba(var(--primary-rgb), 0.9);
-    color: white;
+    color: #9d4edd;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
