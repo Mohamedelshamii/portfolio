@@ -246,6 +246,50 @@ const projectDetails = {
         },
         technologies: ['devicon-html5-plain', 'devicon-css3-plain', 'devicon-javascript-plain'],
     },
+    'resto-restaurant': {
+        title: {
+            en: 'Resto Restaurant',
+            ar: 'مطعم ريستو',
+        },
+        description: {
+            en: 'Resto is a modern and elegant restaurant website that provides an immersive dining experience for customers. The website features a sleek design with smooth animations and intuitive navigation. It includes a comprehensive menu system, real-time table reservation functionality, and a stunning food gallery. The project demonstrates modern web development practices with responsive design and interactive user interfaces.',
+            ar: 'ريستو هو موقع ويب عصري وأنيق للمطعم يوفر تجربة طعام غامرة للعملاء. يتميز الموقع بتصميم أنيق مع حركات سلسة وتنقل بديهي. يتضمن نظام قائمة طعام شامل، وظيفة حجز طاولات فورية، ومعرض صور طعام مذهل. يوضح المشروع ممارسات تطوير الويب الحديثة مع تصميم متجاوب وواجهات مستخدم تفاعلية.',
+        },
+        features: {
+            en: [
+                'Interactive menu with categories and descriptions',
+                'Real-time table reservation system with availability check',
+                'Stunning food gallery with lightbox effect',
+                'Responsive design for all devices',
+                'Contact form with validation',
+                'Smooth animations and transitions',
+                'Multi-language support',
+                'Online ordering system',
+                'Customer reviews section',
+                'Social media integration',
+            ],
+            ar: [
+                'قائمة طعام تفاعلية مع الفئات والأوصاف',
+                'نظام حجز طاولات فوري مع التحقق من التوفر',
+                'معرض صور طعام مذهل مع تأثير الإضاءة',
+                'تصميم متجاوب لجميع الأجهزة',
+                'نموذج اتصال مع التحقق',
+                'حركات وانتقالات سلسة',
+                'دعم تعدد اللغات',
+                'نظام طلب عبر الإنترنت',
+                'قسم مراجعات العملاء',
+                'تكامل مع وسائل التواصل الاجتماعي',
+            ],
+        },
+        technologies: [
+            'devicon-html5-plain',
+            'devicon-css3-plain',
+            'devicon-javascript-plain',
+            'devicon-bootstrap-plain',
+            'devicon-jquery-plain',
+            'devicon-git-plain',
+        ],
+    },
 };
 
 // Modal functionality
