@@ -667,98 +667,114 @@ h2 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
-
 .project-image {
     width: 100%;
     height: 200px;
     overflow: hidden;
 }
-
 .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    border-radius: 0;
 }
-
 .project-card:hover .project-image img {
     transform: scale(1.05);
 }
-
 .project-content {
     padding: 20px;
+    display: block;
+    gap: 0;
 }
-
 .project-content h3 {
     font-family: 'Merienda', cursive;
     font-size: 1.5rem;
     margin-bottom: 10px;
     color: #333;
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+    text-fill-color: initial;
+    letter-spacing: normal;
+    font-weight: 400;
 }
-
 .project-content p {
     font-family: 'Caveat Brush', cursive;
     font-size: 1rem;
     color: #666;
     margin-bottom: 20px;
     line-height: 1.5;
+    min-height: unset;
 }
-
 .project-links {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 15px;
+    margin-top: 0;
 }
-
-.project-link {
+.project-link, .project-more {
     color: #666;
     font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.project-link:hover {
-    color: #9d4edd;
-}
-
-.project-more {
-    margin-left: auto;
-    color: #9d4edd;
+    font-weight: 400;
+    background: none;
+    border-radius: 0;
+    padding: 0;
     text-decoration: none;
-    font-family: 'Merienda', cursive;
-    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    box-shadow: none;
     display: flex;
     align-items: center;
     gap: 5px;
-    transition: transform 0.3s ease;
 }
-
-.project-more:hover {
-    transform: translateX(5px);
+.project-link:hover, .project-more:hover {
+    color: #9d4edd;
+    background: none;
+    box-shadow: none;
+    transform: none;
 }
-
-.project-more i {
-    font-size: 0.8rem;
+.project-more {
+    margin-left: auto;
+    font-size: 0.9rem;
+    font-family: 'Merienda', cursive;
+    font-weight: 400;
 }
-
 @media (max-width: 768px) {
     .project-grid {
         grid-template-columns: 1fr;
         padding: 15px;
     }
-
     .project-content h3 {
         font-size: 1.3rem;
     }
-
     .project-content p {
         font-size: 0.9rem;
     }
+    .project-image {
+        height: 150px;
+    }
+}
+body.dark-mode .project-card {
+    background: rgba(26, 27, 38, 0.95);
+    border: 1px solid rgba(224, 170, 255, 0.13);
+    box-shadow: 0 8px 32px 0 rgba(157, 78, 221, 0.13);
+}
+body.dark-mode .project-content p {
+    color: #e0aaff;
+}
+body.dark-mode .project-link, body.dark-mode .project-more {
+    background: none;
+    color: #e0aaff;
+}
+body.dark-mode .project-link:hover, body.dark-mode .project-more:hover {
+    color: #c77dff;
+    background: none;
 }
 
 .skills-container {
@@ -782,32 +798,43 @@ h2 {
 
 .skills-carousel-container {
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
     position: relative;
-    padding: 20px 0;
+    padding: 0;
 }
 
 .skills-grid {
-    display: flex;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 32px;
     padding: 20px;
-    animation: scrollLTR 35s linear infinite;
-    width: max-content;
-    position: relative;
+    width: 100%;
+    animation: none;
 }
 
-@keyframes scrollLTR {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-50%));
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        padding: 10px;
     }
 }
 
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 5px;
+    }
+}
+
+/* إزالة أي أنيميشن أو تكرار */
 .skills-grid:hover {
-    animation-play-state: paused;
+    animation-play-state: initial;
 }
+
+/* حذف كود الكاروسيل القديم */
+/* @keyframes scrollLTR { ... } */
 
 .skill-item {
     flex: 0 0 auto;
@@ -1436,4 +1463,36 @@ footer {
     .service-content p {
         font-size: 0.9rem;
     }
+}
+
+.project-details {
+    margin: 15px 0 0 0;
+    padding: 0 0 0 20px;
+    list-style: disc inside;
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.7;
+    font-family: 'Cairo', 'Tajawal', Arial, sans-serif;
+    background: none;
+}
+.project-details li {
+    margin-bottom: 4px;
+    padding-left: 0;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    transition: color 0.2s;
+}
+.project-card:hover .project-details li {
+    color: #9d4edd;
+}
+
+body.dark-mode .project-details {
+    color: #e0aaff;
+}
+body.dark-mode .project-details li {
+    color: #e0aaff;
+}
+body.dark-mode .project-card:hover .project-details li {
+    color: #c77dff;
 }
