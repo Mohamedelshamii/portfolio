@@ -108,10 +108,10 @@ cd portfolio
 
 ## 📫 Contact
 
--   Email: [Your Email]
--   LinkedIn: [Your LinkedIn]
--   GitHub: [Your GitHub]
--   WhatsApp: [Your WhatsApp]
+-   Email: [melshami80@gmail.com]
+-   LinkedIn: [https://www.linkedin.com/in/mohamed-elshami-389b6b223/]
+-   GitHub: [https://github.com/Mohamedelshamii]
+-   WhatsApp: [01555998128]
 
 ## 📄 License
 
